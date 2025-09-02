@@ -35,7 +35,27 @@ public class Main {
 		}
 		
 		// printa as temporadas
+        /*
+         * o método abaixo é uma função lambda equivalente a 'temporadas.forEach(t -> System.out.println(t));'
+         * e o 't' é como se fosse o 'for' que percorre cada elemento da lista temporadas,
+         * nesse caso estamos usando o t e printando o t (um único elemento), então podemos usar ::
+         */
 		temporadas.forEach(System.out::println);
+
+        // uma outra forma de fazer o forEach printando dois elementos, como se fosse "linha x coluna"
+        /*
+         * nesse caso estamos acessando as temporadas, e para cada temporada (t) estamos acessando os episódios
+         * e dentro de cada episódio (e) estamos acessando o título
+         * o que seria equivalente a:
+         * 
+         * for(int i = 0; i < dados.totalTemporadas; i++) {
+         *   List<DadosEpisodio> episodios = temporadas.get(i).episodios();
+         *   for(int j = 0; j < episodios.size(); j++) {
+         *     String titulo = episodios.get(j).titulo();
+         *   }
+         * }
+         */
+        temporadas.forEach(t -> t.episodios().forEach(e -> e.titulo()));
     }
     
 }
