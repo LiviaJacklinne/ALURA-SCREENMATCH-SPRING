@@ -1,6 +1,7 @@
 package br.com.alura.screenmatch.main;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -56,6 +57,22 @@ public class Main {
          * }
          */
         temporadas.forEach(t -> t.episodios().forEach(e -> e.titulo()));
+
+
+
+        // usando stream
+        List <String> nomes = Arrays.asList("Jacque", "Iasmin", "Paulo", "Rodrigo", "Nico");
+        
+        /*
+         * Com o stream nós conseguimos ordenar em ordem alfabética, limitar a quantidade de elementos, pegar os nomes 
+         * que começam com 'N', transformar tudo em maiúsculo e imprimir na tela
+         */
+        nomes.stream()
+            .sorted()
+            .limit(3)
+            .filter( n -> n.startsWith("N"))
+            .map(n -> n.toUpperCase())
+            .forEach(System.out::println);
     }
     
 }
